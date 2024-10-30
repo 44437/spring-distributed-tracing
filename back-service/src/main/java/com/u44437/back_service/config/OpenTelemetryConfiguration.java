@@ -53,7 +53,7 @@ public class OpenTelemetryConfiguration {
                     .setPropagators(ContextPropagators.create(W3CTraceContextPropagator.getInstance()))
                     .build();
 
-    Runtime.getRuntime().addShutdownHook(new Thread(sdkTracerProvider::close));
+    Runtime.getRuntime().addShutdownHook(new Thread(openTelemetrySdk::close));
 
     return openTelemetrySdk;
   }
